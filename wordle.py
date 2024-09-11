@@ -6,6 +6,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 def play_wordle():
+    print("Playing Wordle...")    
     url = "https://www.nytimes.com/games/wordle/index.html"
 
     driver = webdriver.Firefox()

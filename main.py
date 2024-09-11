@@ -13,7 +13,6 @@ intents.message_content = True
 client = discord.Client(intents=intents)
 
 tree = discord.app_commands.CommandTree(client)
-print("Playing Wordle...")
 daily_stats = wordle.play_wordle()
 print(daily_stats)
 
