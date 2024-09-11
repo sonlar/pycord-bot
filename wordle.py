@@ -49,7 +49,7 @@ def play_wordle():
                 msg += ":yellow_square:"
             case "correct":
                 msg += ":green_square:"
-    print(penis_dict)
-    print(msg)
+    with open ("score_wordle", "w") as f:
+        f.write(msg)
     return msg
 

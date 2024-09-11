@@ -2,7 +2,7 @@ import discord
 from dotenv import load_dotenv
 from os import getenv
 import re
-import wordle
+import last_wordle
 
 load_dotenv()
 discord_token = getenv("DISCORD_TOKEN")
@@ -13,8 +13,10 @@ intents.message_content = True
 client = discord.Client(intents=intents)
 
 tree = discord.app_commands.CommandTree(client)
-daily_stats = wordle.play_wordle()
-print(daily_stats)
+
+def wordle_check():
+    score = last_wordle.check_time()
+    return score
 
 @tree.command(
     name="wordle",
@@ -22,7 +24,7 @@ print(daily_stats)
     guild=discord.Object(id=547041619656966185)
 )
 async def wordle(interaction):
-    await interaction.response.send_message(daily_stats)
+    await interaction.response.send_message(wordle_check())
 
 @client.event
 async def on_ready():
