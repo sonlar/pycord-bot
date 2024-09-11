@@ -6,6 +6,7 @@ import last_wordle
 
 load_dotenv()
 discord_token = getenv("DISCORD_TOKEN")
+guild_id = getenv("GUILD_ID")
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -21,7 +22,7 @@ def wordle_check():
 @tree.command(
     name="wordle",
     description="Check Today's Penis Gambit",
-    guild=discord.Object(id=547041619656966185)
+    guild=discord.Object(id=guild_id)
 )
 async def wordle(interaction):
     await interaction.response.send_message(wordle_check())
@@ -29,7 +30,7 @@ async def wordle(interaction):
 @client.event
 async def on_ready():
     print(f"We have logged in as {client.user}")
-    await tree.sync(guild=discord.Object(id=547041619656966185))
+    await tree.sync(guild=discord.Object(id=guild_id))
 
 @client.event
 async def on_message(message):
