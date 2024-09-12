@@ -1,7 +1,7 @@
 import json
 import os
 keys = ["epic"]
-sub_keys = [["timestamp"]]
+sub_keys = [["timestamp", "discord_timestamp"]]
 
 # Check if Folder "pics" exists
 if not os.path.isdir("pics"):
@@ -25,4 +25,4 @@ for pos,key in enumerate(keys):
 with open("data.json", "w") as f:
     json.dump(data, f, indent=4)
 
-
+print("check done")
