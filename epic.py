@@ -1,5 +1,9 @@
+import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+
+if not os.path.isdir("pics"):
+    os.mkdir("pics")
 
 driver = webdriver.Firefox()
 driver.get("https://store.epicgames.com/en-US/free-games")
